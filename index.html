@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>3DCC — The Three-Dimensional Cognitive Coordinate</title>
-<meta name="description" content="美味しさを、辿る。235杯を三つの軸と27ゾーンへ。飲み手を原点に置く、知覚の立体座標——3DCC / The Three-Dimensional Cognitive Coordinate。">
+<meta name="description" content="美味しさを、辿る。200杯を三つの軸と27ゾーンへ。飲み手を原点に置く、知覚の立体座標——3DCC / The Three-Dimensional Cognitive Coordinate。">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -253,6 +253,31 @@
 
   :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 </style>
+<style id="intro-css">
+  /* --- 開幕：見出し → β立ち上げ → 触ってみて --- */
+  .hero-copy.intro .beta-launch{position:relative;display:inline-flex;flex-direction:column;align-items:flex-start;margin:3.6rem 0 0}
+  .hero-copy.intro .beta-pill{display:inline-flex;align-items:center;gap:.7rem;padding:11px 20px;border:1px solid rgba(230,192,122,.55);border-radius:999px;background:rgba(10,10,22,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);text-decoration:none;white-space:nowrap;pointer-events:auto;transition:border-color .3s,box-shadow .3s}
+  .hero-copy.intro .beta-pill:hover{border-color:rgba(230,192,122,.95)}
+  .hero-copy.intro .beta-pill .bp-code{font-family:var(--serif);font-weight:600;font-size:13px;letter-spacing:.2em;color:#e6c07a}
+  .hero-copy.intro .beta-pill .bp-sep{width:1px;height:14px;background:rgba(230,192,122,.4)}
+  .hero-copy.intro .beta-pill .bp-cta{font-family:var(--serif);font-weight:500;font-size:12px;letter-spacing:.08em;color:#e6c07a}
+  .hero-copy.intro .beta-tip{position:absolute;left:14px;bottom:calc(100% + 10px);white-space:nowrap;font-family:var(--serif);font-weight:600;font-size:.8rem;letter-spacing:.06em;color:#0a0a16;background:#e6c07a;padding:.34rem .82rem;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.28);opacity:1}
+  .hero-copy.intro .beta-tip::after{content:"";position:absolute;top:100%;left:16px;border:6px solid transparent;border-top-color:#e6c07a}
+  /* 既定（JSオフ／視差軽減）は全要素そのまま即可視。html.anim のときだけ時間差で立ち上げ、
+     CSSアニメ(fill:both)なので重い端末でも時間経過で必ず最終状態に到達し、まっさらで固まらない。
+     見出し(.i-head)は隠さず最初から表示する。 */
+  html.anim .hero-copy.intro .sub{opacity:0;animation:heroRise .9s cubic-bezier(.215,.61,.355,1) .8s both}
+  html.anim .hero-copy.intro .readout-note{opacity:0;animation:heroRise .9s cubic-bezier(.215,.61,.355,1) 1.2s both}
+  html.anim .hero-copy.intro .beta-launch{opacity:0;animation:heroRise .9s cubic-bezier(.215,.61,.355,1) 1.7s both}
+  html.anim .hero-copy.intro .beta-tip{opacity:0;animation:tipRise .5s ease 2.5s both,tipBob 2.2s ease-in-out 3.1s infinite}
+  html.anim .hero-copy.intro .beta-pill{animation:betaGlow 2.6s ease-in-out 2.8s infinite}
+  html.anim .hero-copy.intro.tipoff .beta-tip{opacity:0!important;animation:none!important}
+  @keyframes heroRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @keyframes tipRise{from{opacity:0}to{opacity:1}}
+  @keyframes tipBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+  @keyframes betaGlow{0%,100%{box-shadow:0 0 0 0 rgba(230,192,122,0)}50%{box-shadow:0 0 24px 0 rgba(230,192,122,.22)}}
+</style>
+<script>if(!matchMedia('(prefers-reduced-motion:reduce)').matches){document.documentElement.classList.add('anim');}</script>
 </head>
 <body>
 
@@ -327,7 +352,7 @@
   const SWEET=[[&quot;Dry&quot;,-1],[&quot;Semi Sweet&quot;,0],[&quot;Sweet&quot;,1]];
   const BODY=[[&quot;Refresh&quot;,-1],[&quot;Mellow&quot;,0],[&quot;Creamy&quot;,1]];
   const DISP={Refresh:&quot;Crisp&quot;,Soft:&quot;Light&quot;};
-  /* β：1ゾーン＝代表1杯のみをクライアントへ。完全な配置（235）は蔵に残す。 */
+  /* β：1ゾーン＝代表1杯のみをクライアントへ。完全な配置（200）は蔵に残す。 */
   const REP={
     &quot;Hard|Dry|Refresh&quot;: {n:&quot;Gimlet&quot;, m:&quot;Gin ・ Lime&quot;},
     &quot;Hard|Dry|Mellow&quot;: {n:&quot;Vesper&quot;, m:&quot;Gin ・ Vodka ・ Lillet Blanc&quot;},
@@ -844,14 +869,17 @@
   <!-- HERO -->
   <header>
     <div class="mark"><span class="glyph">3DCC<span class="reg">™</span></span><span class="en">The Three-Dimensional Cognitive Coordinate</span></div>
-    <div class="wrap hero-copy reveal">
-      <h1>美味しさを、辿る。</h1>
-      <p class="sub">産地も、ブランドも、度数も。いちど忘れて、この知覚のキューブを指先で回してほしい。235杯が、三つの軸と27のゾーンに秩序づけられている。中心の <span class="at">@</span> は、観測者としてのあなただ。</p>
-      <p class="hint">Drag to rotate ・ Tap a zone<span class="jp">　ドラッグで回転・タップで選択</span></p>
+    <div class="wrap hero-copy intro">
+      <h1 class="i-head">美味しさを、辿る。</h1>
+      <p class="sub">産地も、ブランドも、度数も。いちど忘れて、この知覚のキューブを指先で回してほしい。27杯が、三つの軸と27のゾーンに秩序づけられている。中心の <span class="at">@</span> は、観測者としてのあなただ。</p>
       <div class="readout-note empty" aria-live="polite">
         <div class="rname">どこかのゾーンに触れてみて。</div>
         <div class="rcoord"></div>
         <div class="rsub"></div>
+      </div>
+      <div class="beta-launch">
+        <a class="beta-pill" href="https://cocktailtheory.github.io/3DCC-site/beta/" target="_blank" rel="noopener"><span class="bp-code">3DCC-β</span><span class="bp-sep"></span><span class="bp-cta">無料ではじめる →</span></a>
+        <div class="beta-tip" role="status">触ってみて</div>
       </div>
     </div>
     <div class="scrollcue">Scroll<span class="line"></span></div>
@@ -876,7 +904,7 @@
   <section><div class="wrap reveal">
     <span class="eyebrow">I — Concept<span class="jp">設計思想</span></span>
     <h2>美酒の宇宙に、<br>一本の座標を通す。</h2>
-    <p class="lede">ワイン、日本酒、カクテル。これまで別々の言語で語られてきた美酒の世界を、<strong>「人間の知覚」</strong>というただ一つの尺度で貫く。40年の現場から導かれたのは、官能をマッピングするための<strong>三つの直感的な軸と</strong>235杯だった。</p>
+    <p class="lede">ワイン、日本酒、カクテル。これまで別々の言語で語られてきた美酒の世界を、<strong>「人間の知覚」</strong>というただ一つの尺度で貫く。40年の現場から導かれたのは、官能をマッピングするための<strong>三つの直感的な軸と</strong>200杯だった。</p>
     <blockquote>
       <p class="q">我味わう、ゆえに我あり。<span class="at"> @</span></p>
       <cite>原点に立つのは、記号ではなく、味わう主体だ。——『混酒論』</cite>
@@ -1044,8 +1072,8 @@
     <section><div class="wrap reveal">
       <span class="eyebrow">VII — Product<span class="jp">アプリ</span></span>
       <h2>手のなかで、辿る。</h2>
-      <p class="ph">スマートフォンに最適化された、フレームレスの回転キューブ。235杯・27ゾーンを、指先で旅する。</p>
-      <p>いま、この器で触れられるのは、各ゾーンにひとつずつ——27の代表だ。ひとつのゾーンには、本当は幾杯もが折り重なっている。235杯の全景と、なぜそこに置いたのかの理由は、別の一冊にまとめてある。</p>
+      <p class="ph">スマートフォンに最適化された、フレームレスの回転キューブ。200杯・27ゾーンを、指先で旅する。</p>
+      <p>いま、この器で触れられるのは、各ゾーンにひとつずつ——27の代表だ。ひとつのゾーンには、本当は幾杯もが折り重なっている。200杯の全景と、なぜそこに置いたのかの理由は、別の一冊にまとめてある。</p>
       <p>そして器は、カクテルだけのものではない。三つの軸の中身を入れ替えれば、ワインが、日本酒が、ウイスキーが、やがては香りや音までも、同じ座標系の上に並ぶ。器は変わらない。載せるものが、変わるだけだ。</p>
       <p>いずれ、あなた自身の一杯を書き込めるようにする。あなたのセラーを、あなたのバックバーを、あなたの座標に。原点 <span class="at">@</span> に座るのは、いつでも飲み手だからだ。</p>
     </div></section>
@@ -1064,13 +1092,13 @@
   .prod .p-band{margin-top:4.6rem}
   .prod .p-band.first{margin-top:0}
   .prod .p-head{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
-  .prod .p-head .t{font-family:var(--en);font-style:italic;font-weight:600;letter-spacing:.2em;color:var(--gold);font-size:.92rem;white-space:nowrap}
+  .prod .p-head .t{font-family:var(--serif);font-weight:600;letter-spacing:.2em;color:var(--gold);font-size:.92rem;white-space:nowrap}
   .prod .p-head .t .jp{font-family:var(--serif);font-style:normal;font-weight:500;font-size:.72rem;letter-spacing:.14em;color:var(--soft);margin-left:.6em}
   .prod .p-head .ln{height:1px;background:var(--line);flex:1}
   .prod .p-grid{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;align-items:stretch}
   .prod .p-tile{position:relative;width:15rem;min-height:19rem;border-radius:16px;padding:1.6rem 1.4rem 1.4rem;display:flex;flex-direction:column;align-items:center;text-align:center;overflow:hidden;text-decoration:none;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
   .prod .p-tile::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 82% at 28% 12%,rgba(255,255,255,.42),transparent 46%);mix-blend-mode:screen;opacity:.5}
-  .prod .p-tile .p-code{font-family:var(--en);font-style:italic;font-weight:600;font-size:1.16rem;letter-spacing:.04em}
+  .prod .p-tile .p-code{font-family:var(--serif);font-weight:600;font-size:1.16rem;letter-spacing:.2em}
   .prod .p-tile .p-nm{font-family:var(--serif);font-weight:600;font-size:.98rem;letter-spacing:.04em;margin:.7rem 0 .9rem}
   .prod .p-tile .p-bd{font-family:var(--sans);font-weight:400;font-size:.8rem;line-height:1.95;margin:0}
   .prod .p-tile .p-tail{margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:.7rem;padding-top:1.1rem;width:100%}
@@ -1230,7 +1258,7 @@
 
     <footer><div class="foot-inner">
       <div class="fmark">3DCC<span class="reg">™</span><span class="en">混酒論 — Konshuron</span></div>
-      <div class="fnote">回転モデルは、本体と同じ27ゾーン・235杯を映している。各ゾーンに触れると、その代表の一杯が現れる。</div>
+      <div class="fnote">回転モデルは、本体と同じ27ゾーン・200杯を映している。各ゾーンに触れると、その代表の一杯が現れる。</div>
       <div class="credit"><span class="nm">岩尾良英</span> <span class="en">Yoshihide Iwao</span><br>J.S.A. Sommelier & SAKE Diploma ・ IBA Bartender<br>note — beyondtheglass</div>
       <div style="margin-top:1.3rem;font-family:var(--en);font-size:1.08rem;line-height:1.7;color:var(--soft);letter-spacing:.09em;opacity:.85">© 2026 Iwao Yoshihide ・ 3DCC™<br>Pat., Des. &amp; TM Pending (2026-175647 / 2026-14085 / 2026-82866)</div>
     </div></footer>
@@ -1283,7 +1311,7 @@
 
   function buildFallback(ed){
     fallback.style.cssText='display:flex;flex-direction:column;align-items:center;width:236px;border-radius:22px;padding:34px 24px 30px;min-height:360px;background:'+ed.base+';color:'+ed.ink+';';
-    fallback.innerHTML='<div style="font:italic 600 1.4rem \'Cormorant Garamond\';margin:0 0 18px">'+ed.code+'</div><div style="font:600 1rem \'Shippori Mincho\';margin-bottom:18px">'+ed.name+'</div><div style="font:400 .82rem \'Zen Kaku Gothic New\';line-height:2;text-align:center">'+ed.desc.join('<br>')+'</div><div style="margin-top:20px;font:italic 600 1rem \'Cormorant Garamond\'">'+ed.price+'</div>';
+    fallback.innerHTML='<div style="font:600 1.4rem \'Shippori Mincho\';margin:0 0 18px">'+ed.code+'</div><div style="font:600 1rem \'Shippori Mincho\';margin-bottom:18px">'+ed.name+'</div><div style="font:400 .82rem \'Zen Kaku Gothic New\';line-height:2;text-align:center">'+ed.desc.join('<br>')+'</div><div style="margin-top:20px;font:italic 600 1rem \'Cormorant Garamond\'">'+ed.price+'</div>';
     if(picker)picker.style.display='none';
     var buy=document.getElementById('p-buy');if(buy)buy.style.display='none';
   }
@@ -1324,7 +1352,7 @@
   function faceTexture(ed){
     var rs=2,W=500*rs,H=690*rs,c=document.createElement('canvas');c.width=W;c.height=H;var g=c.getContext('2d');
     g.fillStyle=ed.base;g.fillRect(0,0,W,H);g.textAlign='center';
-    g.fillStyle=ed.ink;g.font='italic 600 '+(52*rs)+'px "Cormorant Garamond"';g.fillText(ed.code,W/2,150*rs);
+    g.fillStyle=ed.ink;g.font='600 '+(52*rs)+'px "Shippori Mincho"';g.fillText(ed.code,W/2,150*rs);
     g.font='600 '+(35*rs)+'px "Shippori Mincho"';g.fillText(ed.name,W/2,244*rs);
     g.font='400 '+(23*rs)+'px "Zen Kaku Gothic New"';
     var mw=W*0.84,lh=44*rs,lines=[];ed.desc.forEach(function(p){lines=lines.concat(wrapJP(g,p,mw));});
@@ -1373,6 +1401,15 @@
 })();
 
   </script>
+
+<script>
+try{
+  var _pill=document.querySelector('.hero-copy.intro .beta-pill');
+  if(_pill){_pill.addEventListener('pointerenter',function(){
+    var h=_pill.closest('.hero-copy');if(h)h.classList.add('tipoff');
+  },{once:true});}
+}catch(e){}
+</script>
 
 </body>
 </html>
