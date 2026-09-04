@@ -2,7 +2,6 @@
 <html lang="ja">
 <head>
 <!-- 3DCC — The Three-Dimensional Cognitive Coordinate / 接ぎ木版 -->
-<!-- 演出の骨組み（sticky背景・CTA・掴み）＝Geminiの構え / 中身＝本物の27ゾーン格子 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>3DCC — The Three-Dimensional Cognitive Coordinate</title>
@@ -35,7 +34,7 @@
   ::-webkit-scrollbar-track{background:var(--bg)}
   ::-webkit-scrollbar-thumb{background:rgba(199,159,99,.25)}
 
-  /* ====== 背景に敷きっぱなしの3D（Geminiの構え）====== */
+  /* fixed 3D background */
   #view-wrapper{position:fixed;inset:0;width:100vw;height:100svh;z-index:0;pointer-events:none}
   #stage{width:100%;height:100%;display:block;pointer-events:auto;touch-action:pan-y;cursor:grab}
   #stage.dragging{cursor:grabbing}
@@ -871,14 +870,14 @@
     <div class="mark"><span class="glyph">3DCC<span class="reg">™</span></span><span class="en">The Three-Dimensional Cognitive Coordinate</span></div>
     <div class="wrap hero-copy intro">
       <h1 class="i-head">美味しさを、辿る。</h1>
-      <p class="sub">産地も、ブランドも、度数も。いちど忘れて、この知覚のキューブを指先で回してほしい。27杯が、三つの軸と27のゾーンに秩序づけられている。中心の <span class="at">@</span> は、観測者としてのあなただ。</p>
+      <p class="sub">産地も、ブランドも、度数も。いちど忘れて、この知覚のキューブを眺めてほしい。27杯が、三つの軸と27のゾーンに秩序づけられている。中心の <span class="at">@</span> は、観測者としてのあなただ。</p>
       <div class="readout-note empty" aria-live="polite">
         <div class="rname">どこかのゾーンに触れてみて。</div>
         <div class="rcoord"></div>
         <div class="rsub"></div>
       </div>
       <div class="beta-launch">
-        <a class="beta-pill" href="https://cocktailtheory.github.io/3DCC-site/beta/" target="_blank" rel="noopener"><span class="bp-code">3DCC-β</span><span class="bp-sep"></span><span class="bp-cta">無料ではじめる →</span></a>
+        <a class="beta-pill" href="https://cocktailtheory.github.io/3DCC-core/" target="_blank" rel="noopener"><span class="bp-code">3DCC-β</span><span class="bp-sep"></span><span class="bp-cta">無料ではじめる →</span></a>
         <div class="beta-tip" role="status">触ってみて</div>
       </div>
     </div>
@@ -1032,7 +1031,6 @@
     <p class="couplet"><span class="b">世界は、人間がいなくても存在する。</span><span class="b">しかし、人間がいなければ、<span class="star">星座</span>は生まれない。</span></p>
   </div></section>
 
-  <!-- ============ 第二幕：実務（プロダクト）。素材待ちの器 ============ -->
   <div class="act2">
 
     <!-- 蝶番：没入から実務へ、一段の階段 -->
@@ -1149,7 +1147,7 @@
     <div class="p-band first reveal">
       <div class="p-head"><span class="t">Start<span class="jp">入口・無料</span></span><span class="ln"></span></div>
       <div class="p-grid">
-      <a class="p-tile fg matte" href="https://cocktailtheory.github.io/3DCC-site/beta/" target="_blank" rel="noopener" style="--tileink:#2b2a26;--tilebg:#ebe9e3;background:#ebe9e3;color:#2b2a26"><div class="p-code">3DCC-β</div><div class="p-nm">まず、触れてみる。</div><p class="p-bd">27のカクテルで、<br>座標を歩く。</p><div class="p-tail"><div class="p-rule"></div><div class="p-pr">¥0</div><span class="p-cta">無料ではじめる →</span></div></a>
+      <a class="p-tile fg matte" href="https://cocktailtheory.github.io/3DCC-core/" target="_blank" rel="noopener" style="--tileink:#2b2a26;--tilebg:#ebe9e3;background:#ebe9e3;color:#2b2a26"><div class="p-code">3DCC-β</div><div class="p-nm">まず、触れてみる。</div><p class="p-bd">27のカクテルで、<br>座標を歩く。</p><div class="p-tail"><div class="p-rule"></div><div class="p-pr">¥0</div><span class="p-cta">無料ではじめる →</span></div></a>
       </div>
     </div>
 
@@ -1253,7 +1251,6 @@
       <span class="eyebrow">IX — Support<span class="jp">支援</span></span>
       <p class="invite">この航海に、<br>同船してほしい。<span class="at"> @</span></p>
       <span class="cta" style="opacity:.5;pointer-events:none">近日</span>
-      <p class="cta-note">※ プロジェクト公開URLは確定後に差し替え。</p>
     </div></section>
 
     <footer><div class="foot-inner">
